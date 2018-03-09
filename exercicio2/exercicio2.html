@@ -14,24 +14,36 @@
     <div id="exercicio2">
         <!-- 1) Exibir um alerta quando o botão for pressionado -->
         <div>
-            <button class="btn alerta">Alerta!!!</button>
+            <button @click='popup'>Popup</button>
         </div>
         <!-- 2) Quando uma tecla for pressiona guardar o seu valor numa variável (obs: usar event.target.value para obter valor) -->
         <div>
-            <input type="text">
-            <p>{{ valor }}</p>
+            <input @keyup.enter='text1'>
+            <p>{{ valor1 }}</p>
         </div>
         <!-- Ajustar o exercício anterior para guardar o valor apenas quando pressionado "enter" -->
         <div>
-            <input type="text">
-            <p>{{ valor }}</p>
+            <input @keyup.enter="text2">
+            <p>{{ valor2 }}</p>
         </div>
     </div>
     <script>
         new Vue({
             el: '#exercicio2',
             data: {
-                valor: ''
+                valor1: '',
+                valor2: ''
+            },
+            methods: {
+                popup: function (event) {
+                    alert('ALERTA!!')
+                },
+                text1: function (event) {
+                    this.valor1 = event.target.value
+                },
+                text2: function (event) {
+                    this.valor2 = event.target.value
+                },
             }
         });
     </script>
