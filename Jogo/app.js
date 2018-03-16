@@ -38,14 +38,15 @@ new Vue({
         this.monsterAttacks();
       },
       heal: function() {
-        if (this.playerHealth <= 90) {
-          this.playerHealth += 10;
+        var i = this.calculateDamage(10, 20);
+        if (this.playerHealth <= 80) {
+          this.playerHealth += i;
         } else {
           this.playerHealth = 100;
         }
         this.turns.unshift({
           isPlayer: true,
-          text: 'Player heals for 10',
+          text: 'Player heals for '+ i ,
         });
         this.monsterAttacks();
       },
