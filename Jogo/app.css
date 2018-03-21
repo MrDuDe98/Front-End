@@ -3,9 +3,8 @@
 }
 
 .healthbar {
-    width: 50%;
+    width: 70%;
     height: 40px;
-    background-color: #eee;
     margin: auto;
     transition: width 500ms;
 }
