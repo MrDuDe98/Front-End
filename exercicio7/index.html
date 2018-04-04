@@ -17,6 +17,26 @@
             <div v-if="toggle">Texto 2</div>
         </transition>
     </div>
+    <section class="row log" v-if="turns.length > 0">
+        <div class="small-12 columns">
+            <ul> 
+                <transition-group name="fade" appear>
+                    
+                    <li v-for="turn in turns"
+                        :class="{'player-turn': turn.isPlayer, 
+                        'monster-turn': !turn.isPlayer}"
+                        :key ="turn.id"> 
+                        {{ turn.text }}
+        </li > 
+        </transition-
+        group>
+                        </
+        ul> 
+                    </
+        div  > 
+                </
+        section
+        > 
     <style>
         .deslizar-enter { 
             transform: translateY(20px);
@@ -64,6 +84,14 @@
             opacity: 0;
         }
     </style> 
+    <style> 
+        .fade-enter-active { 
+            transition: opacity 0.5s;
+        }
+        .fade-enter { 
+            opacity:  0; 
+        }
+    </style>
     <script>
         new Vue({
             el:'#exercicio7', 
@@ -72,5 +100,6 @@
             } 
         }); 
     </script>
+
 </body>
 </html>
